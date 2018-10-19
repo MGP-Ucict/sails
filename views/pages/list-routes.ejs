@@ -1,0 +1,18 @@
+<div id="list-routes" v-cloak>
+  <div class="container">
+    <h1>List routes</h1>
+    <hr/>
+   
+  <ul>
+  <li v-for="route in routes">
+  
+  
+ {{route.name}}
+<a class="btn btn-outline-info" :href="'/edit-route/'+ route.id"> Edit </a>	
+<a class="btn btn-outline-danger" :href="'/del-route/'+ route.id"> Delete </a>	
+	
+  </li>
+</ul>
+  </div>
+</div>
+<%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>

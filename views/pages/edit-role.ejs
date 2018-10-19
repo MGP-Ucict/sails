@@ -1,0 +1,40 @@
+<div id="edit-role" v-cloak>
+  <div class="container">
+    <h1>Edit role</h1>
+    <hr/>
+    <ajax-form action="editRole" :syncing.sync="syncing" :cloud-error.sync="cloudError" @submitted="submittedForm()" :handle-parsing="handleParsingForm">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input class="form-control" id="name" name="name" type="text"  :class="[formErrors.name ? 'is-invalid' : '']" v-model.trim="formData.name" placeholder="role" autocomplete="name" focus-first>
+            <div class="invalid-feedback" v-if="formErrors.name">Please enter a route name.</div>
+          </div>
+		  <label for="isActive">Is active</label>
+		  <input class="form-control" type="checkbox"  v-model="formData.isActive"/>
+		  
+		  <label for="routes">Routes</label>
+		  <div v-for="r in routes" >
+		  
+		  <input  class="form-control" type="checkbox" :value="r.id"
+			  v-model="formData.routes" />
+			
+		  {{r.name}}
+		  
+		  </div>
+        </div>
+      
+        <div class="col-sm-6">
+          <p class="text-danger" v-if="cloudError">An error occured while processing your request. Please check your information and try again, or <a href="/contact">contact support</a> if the error persists.</p>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group text-right">
+           
+            <ajax-button type="submit" :syncing="syncing" class="btn btn-dark">Edit</ajax-button>
+          </div>
+        </div>
+      </div>
+    </ajax-form>
+  </div>
+</div>
+<%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>

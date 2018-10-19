@@ -1,0 +1,23 @@
+<div id="list-roles" v-cloak>
+  <div class="container">
+    <h1>List roles</h1>
+    <hr/>
+   
+  <ul>
+  <li v-for="role in roles">
+  
+  
+ {{role.name}}
+<div v-for="r in formData.rights">
+ <div v-if="'/edit-role/:id'===r">
+
+<a class="btn btn-outline-info" :href="'/edit-role/'+ role.id"> Edit </a>	
+</div>
+</div>
+<a class="btn btn-outline-danger" :href="'/del-role/'+ role.id"> Delete </a>	
+	
+  </li>
+</ul>
+  </div>
+</div>
+<%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>

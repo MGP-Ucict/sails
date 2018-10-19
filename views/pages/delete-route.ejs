@@ -1,0 +1,19 @@
+<div id="delete-route" v-cloak>
+  <div class="container">
+    <h1>Delete route</h1>
+    <hr/>
+    <ajax-form action="deleteRoute" :syncing.sync="syncing" :cloud-error.sync="cloudError" @submitted="submittedForm()" :handle-parsing="handleParsingForm">
+      
+      Do you want to remove route {{name}}?
+        
+        <div class="col-sm-6">
+          <div class="form-group text-right">
+            <a class="btn btn-outline-info" href="/list-routes">Cancel</a>
+            <ajax-button type="submit" :syncing="syncing" class="btn btn-dark">Remove</ajax-button>
+          </div>
+        </div>
+      </div>
+    </ajax-form>
+  </div>
+</div>
+<%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>
